@@ -44,6 +44,8 @@
     "polymer": "Polymer/polymer#^1.4.0",
     "paper-progress": "PolymerElements/paper-progress#^1.0.9",
     "paper-behaviors": "PolymerElements/paper-behaviors#^1.0.11",
-    "paper-radio-button": "PolymerElements/paper-radio-button#^1.1.2"
+    "paper-radio-button": "PolymerElements/paper-radio-button#^1.1.2",
+    "paper-menu": "PolymerElements/paper-menu#^1.2.2",
+    "paper-ripple": "PolymerElements/paper-ripple#^1.0.5"
   }
 }
