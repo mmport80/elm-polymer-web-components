@@ -1,0 +1,94 @@
+Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   "use strict";
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values) return _elm.Main.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $Html$Events = Elm.Html.Events.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $StartApp$Simple = Elm.StartApp.Simple.make(_elm);
+   var _op = {};
+   var paperToolbar = $Html.node("paper-toolbar");
+   var paperListBox = $Html.node("paper-listbox");
+   var paperItem = $Html.node("paper-item");
+   var paperHeaderPanel = $Html.node("paper-header-panel");
+   var paperFab = $Html.node("paper-fab");
+   var paperDropdownMenu = $Html.node("paper-dropdown-menu");
+   var paperDrawerPanel = $Html.node("paper-drawer-panel");
+   var paperDialog = $Html.node("paper-dialog");
+   var paperCheckbox = $Html.node("paper-checkbox");
+   var paperCard = $Html.node("paper-card");
+   var paperButton = $Html.node("paper-button");
+   var paperBadge = $Html.node("paper-badge");
+   var update = F2(function (action,model) {    return $Basics.not(model);});
+   var Check = {ctor: "Check"};
+   var view = F2(function (address,model) {
+      return A2($Html.div,
+      _U.list([]),
+      _U.list([$Html.text("textz")
+              ,A2(paperCheckbox,_U.list([$Html$Attributes.checked(false),A2($Html$Events.onClick,address,Check)]),_U.list([]))
+              ,$Html.text($Basics.toString(model))
+              ,A2(paperButton,
+              _U.list([A2($Html$Events.onClick,address,Check),A2($Html$Attributes.attribute,"raised","false"),A2($Html$Attributes.attribute,"noink","false")]),
+              _U.list([$Html.text("xoxo")]))
+              ,$Html.text($Basics.toString(model))
+              ,A2($Html.div,
+              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "15%"}]))]),
+              _U.list([A2($Html.span,_U.list([]),_U.list([$Html.text("fofo")]))
+                      ,A2(paperBadge,_U.list([A2($Html$Attributes.attribute,"label","4")]),_U.list([]))]))
+              ,A2(paperCard,
+              _U.list([A2($Html$Attributes.attribute,"heading","Card Title")]),
+              _U.list([A2($Html.div,_U.list([]),_U.list([$Html.text("texttextextexte")]))]))
+              ,A2(paperDialog,
+              _U.list([$Html$Attributes.id("dialog"),A2($Html$Attributes.attribute,"opened","true")]),
+              _U.list([A2($Html.h2,_U.list([]),_U.list([$Html.text("FOFOFO")]))
+                      ,A2(paperButton,_U.list([A2($Html$Attributes.attribute,"dialog-dismiss","true")]),_U.list([$Html.text("dismiss")]))
+                      ,A2(paperButton,_U.list([A2($Html$Attributes.attribute,"dialog-confirm","true")]),_U.list([$Html.text("confirm")]))]))
+              ,A2($Html.div,
+              _U.list([]),
+              _U.list([A2(paperDropdownMenu,
+              _U.list([A2($Html$Attributes.attribute,"label","Your favourite pastry")]),
+              _U.list([A2(paperListBox,
+              _U.list([$Html$Attributes.$class("dropdown-content")]),
+              _U.list([A2(paperItem,_U.list([]),_U.list([$Html.text("x")]))
+                      ,A2(paperItem,_U.list([]),_U.list([$Html.text("y")]))
+                      ,A2(paperItem,_U.list([]),_U.list([$Html.text("z")]))]))]))]))
+              ,A2($Html.div,
+              _U.list([]),
+              _U.list([A2(paperFab,_U.list([$Html$Attributes.title("Heart"),A2($Html$Attributes.attribute,"label","+")]),_U.list([]))]))
+              ,A2($Html.div,
+              _U.list([]),
+              _U.list([A2(paperHeaderPanel,
+              _U.list([]),
+              _U.list([A2(paperToolbar,_U.list([]),_U.list([A2($Html.div,_U.list([]),_U.list([$Html.text("hello bar")]))]))]))]))
+              ,A2($Html.div,_U.list([]),_U.list([]))
+              ,A2($Html.div,_U.list([]),_U.list([]))
+              ,A2($Html.div,_U.list([]),_U.list([]))
+              ,A2($Html.div,_U.list([]),_U.list([]))]));
+   });
+   var main = $StartApp$Simple.start({model: false,update: update,view: view});
+   return _elm.Main.values = {_op: _op
+                             ,main: main
+                             ,Check: Check
+                             ,update: update
+                             ,paperBadge: paperBadge
+                             ,paperButton: paperButton
+                             ,paperCard: paperCard
+                             ,paperCheckbox: paperCheckbox
+                             ,paperDialog: paperDialog
+                             ,paperDrawerPanel: paperDrawerPanel
+                             ,paperDropdownMenu: paperDropdownMenu
+                             ,paperFab: paperFab
+                             ,paperHeaderPanel: paperHeaderPanel
+                             ,paperItem: paperItem
+                             ,paperListBox: paperListBox
+                             ,paperToolbar: paperToolbar
+                             ,view: view};
+};
