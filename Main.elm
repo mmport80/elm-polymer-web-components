@@ -53,6 +53,10 @@ view address model =
     , div [] [ ripple [] [], text "Riiiiiiiiiiiiiipple" ]
     , div
         []
+        [ text "spinner"
+        ]
+    , div
+        []
         [ slider
             [ attribute "value" "21", attribute "editable" "true" ]
             []
