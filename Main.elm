@@ -57,7 +57,10 @@ view address model =
             [ attribute "value" "21", attribute "editable" "true" ]
             []
         ]
-    , div [] []
+    , div
+        []
+        [ spinner [] []
+        ]
     , div [] []
     , div [] []
     , text "textz"
