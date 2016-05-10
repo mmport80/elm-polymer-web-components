@@ -26,3 +26,6 @@ erl_crash.dump
 *~
 *.beam
 *.lock
+
+/bower_components
+/elm-stuff
