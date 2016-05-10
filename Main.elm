@@ -59,7 +59,7 @@ view address model =
         ]
     , div
         []
-        [ spinner [] []
+        [ spinner [ attribute "active" "true" ] []
         ]
     , div [] []
     , div [] []
