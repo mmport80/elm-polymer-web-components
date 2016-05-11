@@ -20,7 +20,7 @@ update action model = model
 view : Model -> Html a
 view model =
   div
-    [ style [ ( "display", "inline-block" ), ("width", "100%") ] ]
+    [ style [ ( "display", "inline-block" ), ("width", "90%") ] ]
     [
     Paper.toolbar
       []
