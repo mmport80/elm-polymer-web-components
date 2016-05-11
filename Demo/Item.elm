@@ -1,7 +1,6 @@
-module Demo.Item exposing (..)
+module Demo.Item exposing (view)
 
 import Html exposing (div, Html, text)
-import Html.App as Html
 import Html.Attributes exposing (style, attribute)
 
 import Paper as Paper exposing (item, itemBody)

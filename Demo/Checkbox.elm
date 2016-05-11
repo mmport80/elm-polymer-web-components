@@ -1,7 +1,6 @@
-module Demo.Checkbox exposing (..)
+module Demo.Checkbox exposing (view)
 
 import Html exposing (div, Html, text)
-import Html.App as Html
 import Html.Attributes exposing (style, attribute)
 
 import Paper as Paper exposing (checkbox)

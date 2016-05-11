@@ -1,7 +1,6 @@
-module Demo.Dialog exposing (..)
+module Demo.Dialog exposing (view)
 
 import Html exposing (div, Html, text, h2)
-import Html.App as Html
 import Html.Attributes exposing (style, attribute, class)
 
 import Paper as Paper exposing (dialogScrollable,dialog)

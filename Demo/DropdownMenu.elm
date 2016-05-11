@@ -1,7 +1,6 @@
-module Demo.DropdownMenu exposing (..)
+module Demo.DropdownMenu exposing (view)
 
 import Html exposing (div, Html, text)
-import Html.App as Html
 import Html.Attributes exposing (style, attribute, class)
 
 import Paper as Paper exposing (dropdownMenu, listBox, item)

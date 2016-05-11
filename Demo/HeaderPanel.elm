@@ -1,7 +1,6 @@
-module Demo.HeaderPanel exposing (..)
+module Demo.HeaderPanel exposing (view)
 
 import Html exposing (div, Html, text, p)
-import Html.App as Html
 import Html.Attributes exposing (style, attribute, class)
 
 import Paper as Paper exposing (headerPanel, toolbar)

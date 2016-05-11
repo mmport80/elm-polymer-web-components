@@ -1,7 +1,6 @@
-module Demo.Card exposing (..)
+module Demo.Card exposing (view)
 
 import Html exposing (div, span, Html, text)
-import Html.App as Html
 import Html.Attributes exposing (style, attribute, class)
 
 import Paper as Paper exposing (card, button)

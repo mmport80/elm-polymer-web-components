@@ -1,7 +1,6 @@
-module Demo.DrawerPanel exposing (..)
+module Demo.DrawerPanel exposing (view)
 
 import Html exposing (div, Html, text, h2)
-import Html.App as Html
 import Html.Attributes exposing (style, attribute, class)
 
 import Paper as Paper exposing (drawerPanel, button)
@@ -33,5 +32,3 @@ view model =
           [ text "Open Sesame" ]
         ]
       ]
-
-    

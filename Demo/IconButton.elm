@@ -1,7 +1,6 @@
-module Demo.IconButton exposing (..)
+module Demo.IconButton exposing (view)
 
 import Html exposing (div, Html)
-import Html.App as Html
 import Html.Attributes exposing (style, attribute)
 
 import Paper as Paper exposing (iconButton)
