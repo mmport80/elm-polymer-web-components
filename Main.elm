@@ -1,204 +1,80 @@
-module Main (..) where
+module Main exposing (..)
 
-import StartApp.Simple exposing (start)
+import Html.App as Html
 import Html exposing (div, span, Html, text, h2)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
-import Paper exposing (..)
+import Html.Lazy exposing (lazy)
 
+import Demo.Badge exposing (view)
+import Demo.Button exposing (view)
+import Demo.Card exposing (view)
+import Demo.Checkbox exposing (view)
+import Demo.Dialog exposing (view)
+import Demo.DrawerPanel exposing (view)
+import Demo.DropdownMenu exposing (view)
+import Demo.Fab exposing (view)
+import Demo.HeaderPanel exposing (view)
+import Demo.IconButton exposing (view)
+import Demo.Input exposing (view)
+import Demo.Item exposing (view)
 
-main : Signal Html
+main : Program Never
 main =
-  StartApp.Simple.start
-    { model = False
+  Html.beginnerProgram
+    { model = model
     , update = update
     , view = view
     }
 
-
-
 -- MODEL
-
-
 type alias Model =
-  Bool
+  { dummy : Bool
+  , currentPage : Action
+  }
 
+model =
+  { dummy = True
+  , currentPage = Item
+  }
 
-type Action
-  = Check
-
+--Update
+type Action = Badge | Button | Card | Checkbox | Dialog | DrawerPanel | DropdownMenu | Fab | HeaderPanel | IconButton
+  | Input | Item
 
 update : Action -> Model -> Model
 update action model =
-  not model
-
-
+  {model | currentPage = action}
 
 -- VIEW
-
-
-view : Signal.Address Action -> Model -> Html
-view address model =
-  div
-    []
-    [ div
-        []
-        [ radioGroup
-            [ attribute "selected" "large" ]
-            [ radioButton [ name "small" ] [ text "small" ]
-            , radioButton [ name "medium" ] [ text "medium" ]
-            , radioButton [ name "large" ] [ text "large" ]
-            ]
-        ]
-    , div [] [ ripple [] [], text "Riiiiiiiiiiiiiipple" ]
-    , div
-        []
-        [ text "spinner"
-        ]
-    , div
-        []
-        [ slider
-            [ attribute "value" "21", attribute "editable" "true" ]
-            []
-        ]
-    , div
-        []
-        [ spinner [ attribute "active" "true" ] []
-        ]
-    , div [] []
-    , div [] []
-    , text "textz"
-    , checkbox [ checked False, onClick address Check ] []
-    , text (toString model)
-    , button
-        [ onClick address Check
-        , attribute "raised" "false"
-        , attribute "noink" "false"
-        ]
-        [ text "xoxo" ]
-    , text (toString model)
-    , div
-        [ style [ ( "width", "15%" ) ] ]
-        [ span [] [ text "fofo" ]
-        , badge [ attribute "label" "4" ] []
-        ]
-    , card
-        [ attribute "heading" "Card Title"
-        ]
-        [ div [] [ text "texttextextexte" ] ]
-    , dialog
-        [ id "dialog", attribute "opened" "true" ]
-        [ h2 [] [ text "FOFOFO" ]
-        , button [ attribute "dialog-dismiss" "true" ] [ text "dismiss" ]
-        , button [ attribute "dialog-confirm" "true" ] [ text "confirm" ]
-        ]
-      -- , paperDrawerPanel
-      --   [ attribute "opened" "true", attribute "peeking" "true" ]
-      --   [ div [ attribute "drawer" "true" ] [ text "Drawer panel..." ]
-      --   , div [ attribute "main" "true" ]
-      --     [ text "Main panel..."
-      --     ]
-      --   ]
-      -- , paperButton [ attribute "paper-drawer-toggle" "true", attribute "raised" "true" ] [ text "Submit" ]
-    , div
-        []
-        [ dropdownMenu
-            [ attribute "label" "Your favourite pastry" ]
-            [ listBox
-                [ class "dropdown-content" ]
-                [ item [] [ text "x" ]
-                , item [] [ text "y" ]
-                , item [] [ text "z" ]
-                ]
-            ]
-        ]
-      --<paper-fab icon="favorite" title="heart"></paper-fab>
-    , div
-        []
-        [ fab [ title "Heart", attribute "label" "+" ] []
-        ]
-    , div
-        []
-        [ headerPanel
-            []
-            [ toolbar
-                []
-                [ div [] [ text "hello bar" ]
-                ]
-            ]
-        ]
-    , div
-        []
-        [ text "xoxo"
-        , iconButton
-            [ src "star.png"
-            , attribute "raised" "true"
-            ]
-            []
-        ]
-    , div
-        []
-        [ text "xoxo"
-        , iconButton
-            [ attribute "icon" "favorite"
-            , attribute "raised" "true"
-            ]
-            []
-        ]
-    , div
-        []
-        [ input
-            [ placeholder "soso"
-            , attribute "label" "input"
-            , attribute "char-counter" "true"
-            , attribute "maxlength" "10"
-            ]
-            []
-        ]
-    , div
-        []
-        [ text "test" ]
-    , div
-        []
-        [ textArea [ placeholder "toto", attribute "label" "autoresizing textarea input" ] [ text "gogogogogo" ]
-        ]
-    , div
-        []
-        [ material [] [ text "gogogogogo" ]
-        ]
-    , div
-        []
-        [ menuButton
-            []
-            [ iconButton [ attribute "icon" "menu", class "dropdown-trigger" ] []
-            , menu
-                [ attribute "selected" "1", class "dropdown-content" ]
-                [ item [] [ text "gogogogogo" ]
-                , item [] [ text "uiuiuiui" ]
-                , subMenu
-                    []
-                    [ item [ class "menu-trigger" ] [ text "Numbers" ]
-                    , menu
-                        [ class "menu-content" ]
-                        [ item [] [ text "1010101010" ]
-                        , item [] [ text "29292929" ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
-    , div
-        []
-        [ progress [ attribute "indeterminate" "true" ] []
-        , div
-            []
-            [ progress [ attribute "value" "800", attribute "min" "100", attribute "max" "1000" ] []
-            ]
-        ]
-    , div [] []
-    , div [] []
-    , div [] []
-    , div [] []
-    , div [] []
-    , div [] []
-    ]
+view : Model -> Html a
+view model =
+  let
+    v =
+      case model.currentPage of
+        Badge ->
+          Demo.Badge.view
+        Button ->
+          Demo.Button.view
+        Card ->
+          Demo.Card.view
+        Checkbox ->
+          Demo.Checkbox.view
+        Dialog ->
+          Demo.Dialog.view
+        DrawerPanel ->
+          Demo.DrawerPanel.view
+        DropdownMenu ->
+          Demo.DropdownMenu.view
+        Fab ->
+          Demo.Fab.view
+        HeaderPanel ->
+          Demo.HeaderPanel.view
+        IconButton ->
+          Demo.IconButton.view
+        Input ->
+          Demo.Input.view
+        Item ->
+          Demo.Item.view
+    in
+      lazy v model.dummy
