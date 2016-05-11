@@ -2,8 +2,6 @@ module Main exposing (..)
 
 import Html.App as Html
 import Html exposing (div, span, Html, text, h2)
-import Html.Attributes exposing (..)
-import Html.Events exposing (onClick)
 import Html.Lazy exposing (lazy)
 
 import Demo.Badge exposing (view)
@@ -18,6 +16,11 @@ import Demo.HeaderPanel exposing (view)
 import Demo.IconButton exposing (view)
 import Demo.Input exposing (view)
 import Demo.Item exposing (view)
+import Demo.ListBox exposing (view)
+import Demo.Material exposing (view)
+import Demo.Menu exposing (view)
+import Demo.Progress exposing (view)
+import Demo.RadioGroup exposing (view)
 
 main : Program Never
 main =
@@ -33,14 +36,15 @@ type alias Model =
   , currentPage : Action
   }
 
+model : { currentPage : Action, dummy: Bool}
 model =
   { dummy = True
-  , currentPage = Item
+  , currentPage = RadioGroup
   }
 
 --Update
 type Action = Badge | Button | Card | Checkbox | Dialog | DrawerPanel | DropdownMenu | Fab | HeaderPanel | IconButton
-  | Input | Item
+  | Input | Item | ListBox | Material | Menu | Progress | RadioGroup
 
 update : Action -> Model -> Model
 update action model =
@@ -76,5 +80,15 @@ view model =
           Demo.Input.view
         Item ->
           Demo.Item.view
+        ListBox ->
+          Demo.ListBox.view
+        Material ->
+          Demo.Material.view
+        Menu ->
+          Demo.Menu.view
+        Progress ->
+          Demo.Progress.view
+        RadioGroup ->
+          Demo.RadioGroup.view
     in
       lazy v model.dummy
