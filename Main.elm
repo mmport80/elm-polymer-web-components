@@ -21,6 +21,15 @@ import Demo.Material exposing (view)
 import Demo.Menu exposing (view)
 import Demo.Progress exposing (view)
 import Demo.RadioGroup exposing (view)
+import Demo.Ripple exposing (view)
+import Demo.ScrollHeaderPanel exposing (view)
+import Demo.Slider exposing (view)
+import Demo.Spinner exposing (view)
+import Demo.SpinnerLite exposing (view)
+import Demo.Tabs exposing (view)
+import Demo.Toast exposing (view)
+import Demo.ToggleButton exposing (view)
+import Demo.Toolbar exposing (view)
 
 main : Program Never
 main =
@@ -39,12 +48,13 @@ type alias Model =
 model : { currentPage : Action, dummy: Bool}
 model =
   { dummy = True
-  , currentPage = RadioGroup
+  , currentPage = Toolbar
   }
 
 --Update
 type Action = Badge | Button | Card | Checkbox | Dialog | DrawerPanel | DropdownMenu | Fab | HeaderPanel | IconButton
-  | Input | Item | ListBox | Material | Menu | Progress | RadioGroup
+  | Input | Item | ListBox | Material | Menu | Progress | RadioGroup | Ripple | ScrollHeaderPanel | Slider | Spinner
+  | SpinnerLite | Tabs | Toast | ToggleButton | Toolbar
 
 update : Action -> Model -> Model
 update action model =
@@ -90,5 +100,23 @@ view model =
           Demo.Progress.view
         RadioGroup ->
           Demo.RadioGroup.view
+        Ripple ->
+          Demo.Ripple.view
+        ScrollHeaderPanel ->
+          Demo.ScrollHeaderPanel.view
+        Slider ->
+          Demo.Slider.view
+        Spinner ->
+          Demo.Spinner.view
+        SpinnerLite ->
+          Demo.SpinnerLite.view
+        Tabs ->
+          Demo.Tabs.view
+        Toast ->
+          Demo.Toast.view
+        ToggleButton ->
+          Demo.ToggleButton.view
+        Toolbar ->
+          Demo.Toolbar.view
     in
       lazy v model.dummy
