@@ -48,10 +48,24 @@
     <link rel="import" href="bower_components/paper-tooltip/paper-tooltip.html">
 
   </head>
-  <body></body>
+  <body>
+    <div id="elm">
+
+    </div>
+    <!-- <paper-dropdown-menu label="Your favourite pastry">
+      <paper-listbox class="dropdown-content">
+        <paper-item>Croissant</paper-item>
+        <paper-item>Donut</paper-item>
+        <paper-item>Financier</paper-item>
+        <paper-item>Madeleine</paper-item>
+      </paper-listbox>
+    </paper-dropdown-menu> -->
+
+  </body>
 
   <script src="elm.js"></script>
   <script>
-    var app = Elm.Main.fullscreen();
+    const div = document.querySelector( "#elm" )
+    const app = Elm.Main.embed(div);
   </script>
 </html>

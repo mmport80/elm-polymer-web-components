@@ -2,32 +2,41 @@ module Demo.ScrollHeaderPanel exposing (view)
 
 import Html exposing (div, Html, text)
 import Html.Attributes exposing (style, attribute, class)
+import Paper exposing (scrollHeaderPanel)
 
-import Paper as Paper exposing (scrollHeaderPanel)
 
 -- MODEL
-type alias Model = Bool
+
+
+type alias Model =
+    Bool
+
 
 model : Bool
-model = False
+model =
+    False
 
-type Action = Nothing
+
+type Action
+    = Nothing
+
 
 update : Action -> Model -> Model
-update action model = model
+update action model =
+    model
+
+
 
 -- VIEW
+
+
 view : Model -> Html a
 view model =
-  div
-  [ class "fullbleed layout vertical" ]
-  [ Paper.scrollHeaderPanel
-    [ class "flex" ]
-    [ Paper.toolbar
-      []
-      [ div
-        []
-        [ text "Hello World!" ]
-      ]
-    ]
-  ]
+    div [ class "fullbleed layout vertical" ]
+        [ Paper.scrollHeaderPanel [ class "flex" ]
+            [ Paper.toolbar []
+                [ div []
+                    [ text "Hello World!" ]
+                ]
+            ]
+        ]

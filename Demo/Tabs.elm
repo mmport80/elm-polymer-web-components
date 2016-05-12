@@ -2,26 +2,38 @@ module Demo.Tabs exposing (view)
 
 import Html exposing (div, Html, text)
 import Html.Attributes exposing (style, attribute)
+import Paper exposing (tabs, tab)
 
-import Paper as Paper exposing (tabs, tab)
 
 -- MODEL
-type alias Model = Bool
+
+
+type alias Model =
+    Bool
+
 
 model : Bool
-model = False
+model =
+    False
 
-type Action = Nothing
+
+type Action
+    = Nothing
+
 
 update : Action -> Model -> Model
-update action model = model
+update action model =
+    model
+
+
 
 -- VIEW
+
+
 view : Model -> Html a
 view model =
-  Paper.tabs
-    [ attribute "selected" "1" ]
-    [ Paper.tab [] [ text "One" ]
-    , Paper.tab [] [ text "Two" ]
-    , Paper.tab [] [ text "Three" ]
-    ]
+    Paper.tabs [ attribute "selected" "1" ]
+        [ Paper.tab [] [ text "One" ]
+        , Paper.tab [] [ text "Two" ]
+        , Paper.tab [] [ text "Three" ]
+        ]

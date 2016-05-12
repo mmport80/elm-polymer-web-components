@@ -2,32 +2,43 @@ module Demo.ListBox exposing (view)
 
 import Html exposing (div, Html, text)
 import Html.Attributes exposing (style, attribute)
+import Paper exposing (listBox, item)
 
-import Paper as Paper exposing (listBox, item)
 
 -- MODEL
-type alias Model = Bool
+
+
+type alias Model =
+    Bool
+
 
 model : Bool
-model = False
+model =
+    False
 
-type Action = Nothing
+
+type Action
+    = Nothing
+
 
 update : Action -> Model -> Model
-update action model = model
+update action model =
+    model
+
+
 
 -- VIEW
+
+
 view : Model -> Html a
 view model =
-  div
-    [ style [ ( "display", "inline-block" ), ("margin", "1em") ]
-    ]
-    [ Paper.listBox
-      [ attribute "selected" "0"]
-      [ Paper.item [] [text "First"]
-      , Paper.item [] [text "Second"]
-      , Paper.item
-        [ attribute "disabled" "true" ]
-        [ text "Third" ]
-      ]
-    ]
+    div
+        [ style [ ( "display", "inline-block" ), ( "margin", "1em" ) ]
+        ]
+        [ Paper.listBox [ attribute "selected" "0" ]
+            [ Paper.item [] [ text "First" ]
+            , Paper.item [] [ text "Second" ]
+            , Paper.item [ attribute "disabled" "true" ]
+                [ text "Third" ]
+            ]
+        ]
