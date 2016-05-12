@@ -26,6 +26,6 @@ An exploration of using web components in Elm.
 
 - Development Safari & Firefox do OK
 
-  - some web components in nested TEA structures have problems (the present example falls into this category)
+  - Some web components in nested TEA structures have problems (the present example falls into this category)
   
-  - most work flawlessly when not in nested TEA components, which is promising
+  - Most work flawlessly when not in nested TEA components, which is promising
