@@ -1,5 +1,9 @@
 # Elm Polymer Web Components
 
+An exploration of using web components in Elm.
+
+`Paper.elm` is a small shim which maps onto ['Material Design' web components.](https://elements.polymer-project.org/browse?package=paper-elements) 
+
 ##Steps to build
 
 - Install Bower
